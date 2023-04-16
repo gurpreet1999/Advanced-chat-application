@@ -44,6 +44,8 @@ children:[
         { path: "settings", element: <Setting /> },
         { path: "group", element: <Group /> },
         { path: "call", element: <Call /> },
+        { path: "profile", element: <Profile /> },
+
         
         { path: "404", element: <Page404 /> },
         { path: "*", element: <Navigate to="/404" replace /> },
@@ -77,5 +79,7 @@ const Group = Loadable(
 const Call = Loadable(
   lazy(() => import("../pages/dashboard/Call")),
 )
-
+const Profile = Loadable(
+  lazy(() => import("../pages/dashboard/Profile")),
+)
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));

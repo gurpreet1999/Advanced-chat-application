@@ -1,4 +1,4 @@
-import { useTheme } from "@mui/material/styles";
+import  {styled, useTheme}  from "@mui/material/styles";
 import { Avatar, Badge, Box, Stack, Typography } from "@mui/material"
 
 const StyledBadge = styled(Badge)(({ theme }) => ({

@@ -17,3 +17,5 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   }));
+
+  export default StyledInputBase

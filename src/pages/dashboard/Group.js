@@ -6,6 +6,8 @@ import { SimpleBarStyle } from '../../components/Scrollbar';
 import { useTheme } from '@emotion/react';
 import ChatElement from '../../components/ChatElement';
 import CreateGroup from '../../sections/main/CreateGroup';
+import { useState } from 'react';
+import { ChatList } from '../../data';
 
 const Group = () => {
 

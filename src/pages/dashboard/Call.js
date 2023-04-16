@@ -1,11 +1,22 @@
-import { Box, Divider, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Divider, IconButton, Link, Stack, Typography } from '@mui/material';
 import React from 'react'
 import { Search, SearchIconWrapper, StyledInputBase } from '../../components/search';
-import { Phone } from 'phosphor-react';
+import { MagnifyingGlass, Phone } from 'phosphor-react';
 import { SimpleBarStyle } from '../../components/Scrollbar';
 import { useTheme } from '@mui/material/styles';
+import { CallLogs } from '../../data';
+import { CallLogElement } from '../../components/CallElement';
+import { useState } from 'react';
+import StartCall from '../../sections/main/StartCall';
 
 const Call = () => {
+  const [openDialog,setOpenDialog]=useState()
+  const handleCloseDialog=()=>{
+    setOpenDialog(false)
+  }
+  const handleOpenDialog=()=>{
+    setOpenDialog(true)
+  }
 
 const theme=useTheme()
 
@@ -65,7 +76,7 @@ const theme=useTheme()
             <Stack sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
                 <Stack spacing={2.4}>
-                  {call_logs.map((el, idx) => {
+                  {CallLogs.map((el, idx) => {
                     return <CallLogElement key={idx} {...el} />;
                   })}
                 </Stack>

@@ -1,8 +1,9 @@
-import { Avatar, Box, Stack, Typography } from '@mui/material'
+import { Avatar, Box, IconButton, Stack, Typography } from '@mui/material'
 import React from 'react'
 import StyledBadge from './StyledBadge'
 import { ArrowDownLeft, ArrowUpRight, Phone, VideoCamera } from 'phosphor-react'
-import styled from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
+import  {useTheme}  from "@mui/material/styles";
 
 const StyledChatBox = styled(Box)(({ theme }) => ({
     "&:hover": {
@@ -11,7 +12,7 @@ const StyledChatBox = styled(Box)(({ theme }) => ({
   }));
 
 const CallLogElement=({online,incoming,missed})=>{
-
+const theme=useTheme()
     return(<>
     
     <StyledChatBox
@@ -68,9 +69,56 @@ const CallLogElement=({online,incoming,missed})=>{
 }
 
 
-const CallElement = () => {
+const CallElement = ({name,img,online,handleClose}) => {
+
+const theme=useTheme()
+
+
   return (
-    <div>CallElement</div>
+    <StyledChatBox
+    sx={{
+      width: "100%",
+
+      borderRadius: 1,
+
+      backgroundColor: theme.palette.background.paper,
+    }}
+    p={2}
+  >
+    <Stack
+      direction="row"
+      alignItems={"center"}
+      justifyContent="space-between"
+    >
+      <Stack direction="row" spacing={2}>
+        {" "}
+        <Avatar alt={name} src={img} />
+        <Stack spacing={0.3} alignItems="center" direction={"row"}>
+          <Typography variant="subtitle2">{name}</Typography>
+        </Stack>
+      </Stack>
+      <Stack direction={"row"} spacing={2} alignItems={"center"}>
+        <IconButton
+          onClick={() => {
+          
+            handleClose();
+          }}
+        >
+          <Phone style={{ color: theme.palette.primary.main }} />
+        </IconButton>
+
+        <IconButton
+          onClick={() => {
+           
+
+            handleClose();
+          }}
+        >
+          <VideoCamera style={{ color: theme.palette.primary.main }} />
+        </IconButton>
+      </Stack>
+    </Stack>
+  </StyledChatBox>
   )
 }
 

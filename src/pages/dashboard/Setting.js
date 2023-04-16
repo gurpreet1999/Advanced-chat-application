@@ -92,7 +92,7 @@ const list = [
 
 {/* {//header} */}
     <Stack direction="row" alignItems={"center"} spacing={3}>
-              <IconButton  onClick={""}>
+              <IconButton  onClick={()=>{}}>
                 <CaretLeft size={24} color={"#4B4B4B"} />
               </IconButton>
 

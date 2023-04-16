@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, Dialog, DialogContent, DialogTitle, Slide } from '@mui/material'
+import { Button, Dialog, DialogContent, DialogTitle, Slide, Stack } from '@mui/material'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
 import RHFTextField from '../../components/hook-form/RHFTextField';
-import RHFAutocomplete from '../../components/hook-form/RHFAutocomplete';
+// import RHFAutocomplete from '../../components/hook-form/RHFAutocomplete';
+import * as Yup from "yup"
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -51,14 +52,14 @@ const CreateGroupForm=({handleClose})=>{
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3}>
           <RHFTextField name="title" label="Title" />
-          <RHFAutocomplete
+          {/* <RHFAutocomplete
             name="members"
             label="Members"
             multiple
             freeSolo
             options={""}
             ChipProps={{ size: "medium" }}
-          />
+          /> */}
           <Stack
             spacing={2}
             direction={"row"}
